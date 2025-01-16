@@ -31,5 +31,5 @@ int main(void)
 
 void delay()
 {
-	for(uint32_t timer = 0; timer < 100000; ++timer);
+	for(volatile uint32_t timer = 0; timer < 100000; ++timer);
 }
