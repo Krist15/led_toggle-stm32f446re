@@ -11,14 +11,14 @@ void delay();
 
 int main(void)
 {
-	uint32_t* rcc_clock_enable_register = (uint32_t*)(RCC + 0x30);
+	volatile uint32_t* rcc_clock_enable_register = (uint32_t*)(RCC + 0x30);
 	*rcc_clock_enable_register |= 0x1;
 
-	uint32_t* gpioa_port_mode_register = (uint32_t*)(GPIOA);
+	volatile uint32_t* gpioa_port_mode_register = (uint32_t*)(GPIOA);
 	*gpioa_port_mode_register &= ~(3 << 10);
 	*gpioa_port_mode_register |= (1 << 10);
 
-	uint32_t* gpioa_port_output_data_register = (uint32_t*)(GPIOA + 0x14);
+	volatile uint32_t* gpioa_port_output_data_register = (uint32_t*)(GPIOA + 0x14);
 
 	for(;;)
 	{
